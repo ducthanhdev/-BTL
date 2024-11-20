@@ -8,6 +8,13 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.14.5/dist/sweetalert2.all.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.14.5/dist/sweetalert2.min.css">
+    <script>
+        const isLoginLocal = localStorage.getItem("isLogin");
+        const fullUrl = window.location.href.split("/admin/index.php")[0];
+        if(isLoginLocal === '1'){
+            window.location.href = fullUrl;
+        }
+    </script>
 </head>
 
 <body class="bg-gray-100">
@@ -18,9 +25,9 @@
                     class="border border-gray-300 rounded-lg p-6 max-w-md shadow-[0_2px_22px_-4px_rgba(93,96,127,0.2)] max-md:mx-auto">
                     <form class="space-y-4" method="POST">
                         <div class="mb-8">
-                            <h3 class="text-gray-800 text-3xl font-extrabold">Sign in</h3>
+                            <h3 class="text-gray-800 text-3xl font-extrabold">Login</h3>
                             <p class="text-gray-500 text-sm mt-4 leading-relaxed">Đăng nhập để quản lý sản phẩm của cửa
-                                hàng Sữa Trường Sơn Dev</p>
+                                hàng Sữa</p>
                         </div>
 
                         <div>
@@ -122,6 +129,7 @@
             }
 
             if (codeSucc == "0") {
+                localStorage.setItem("isLogin", "1")
                 Swal.fire({
                     title: "Chúc Mừng",
                     text: "Bạn đã đăng nhập thành công!",
@@ -163,7 +171,7 @@ if (!empty($_POST)) {
     include "../connect.php";
 
     $username = $_POST["username"];
-    $password = $_POST["password"];
+    $password = $_POST["Password"];
 
     $query = "select * from user where Email = '$username'";
     $result = mysqli_query($conn, $query);

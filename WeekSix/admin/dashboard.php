@@ -135,7 +135,7 @@ if (empty($_SESSION['username'])) {
             if (codeSucc == "200") {
                 Swal.fire({
                     title: "Xin Chào",
-                    text: "Chào mừng bạn đến với trang admin của Sữa Trường Sơn",
+                    text: "Chào mừng bạn đến với trang admin của Sữa ",
                     icon: "success",
                     showConfirmButton: true,
                 }).then(() => {

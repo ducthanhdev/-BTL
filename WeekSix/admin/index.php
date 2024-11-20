@@ -163,9 +163,9 @@ if (!empty($_POST)) {
     include "../connect.php";
 
     $username = $_POST["username"];
-    $password = $_POST["password"];
+    $password = $_POST["Password"];
 
-    $query = "select * from admin where username = '$username'";
+    $query = "select * from user where Email = '$username'";
     $result = mysqli_query($conn, $query);
     if ($result->num_rows < 1) {
     ?>
