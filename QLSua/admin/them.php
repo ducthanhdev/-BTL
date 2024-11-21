@@ -91,7 +91,7 @@
     include '../connect.php';
     if (!empty($_POST)) {
         try {
-            $sql = "INSERT INTO suacc (title, thumbnail, weight, price, content, is_active) VALUES (?, ?, ?, ?, ?, ?)";
+            $sql = "INSERT INTO sua (title, thumbnail, weight, price, content, is_active) VALUES (?, ?, ?, ?, ?, ?)";
 
             $stmt = $conn->prepare($sql);
 

@@ -136,7 +136,7 @@
                     icon: "success",
                     showConfirmButton: true,
                 }).then(() => {
-                    window.location.href = "dashboard.php?code=200";
+                    // window.location.href = "dashboard.php?code=200";
                 });
             }
 

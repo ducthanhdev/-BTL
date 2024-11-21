@@ -130,6 +130,7 @@
         btnAuth.addEventListener("click",()=>{
             if (isLogin === '1') {
                 localStorage.setItem("isLogin", "0");
+                localStorage.setItem("isAdmin", "0");
             }
         })
     }
