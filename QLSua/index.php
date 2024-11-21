@@ -94,6 +94,7 @@
 
     <script>
     const isLogin = localStorage.getItem("isLogin");
+    const isAdmin = localStorage.getItem("isAdmin");
     const textAuth = document.querySelector(".textAuth"); 
     const btnAuth = document.querySelector(".btnAuth");
     const authDiv = document.querySelector(".auth");  
@@ -109,9 +110,9 @@
         }
     }
 
-    if (isLogin === '1' && authDiv) { 
+    if (isAdmin === '1' && authDiv) { 
         const link = document.createElement("a");
-        link.href = "http://localhost/-BTL/QLSua/admin/index.php";  
+        link.href =  window.location.href+"admin/dashboard.php";  
         link.classList.add("btn-link");  
 
         const newButton = document.createElement("button");

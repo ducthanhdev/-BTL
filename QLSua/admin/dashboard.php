@@ -9,7 +9,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.14.5/dist/sweetalert2.all.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.14.5/dist/sweetalert2.min.css">
 </head>
-
+<!-- 
 <?php
 session_start();
 if (empty($_SESSION['username'])) {
@@ -20,7 +20,7 @@ if (empty($_SESSION['username'])) {
     <?php
 }
 
-?>
+?> -->
 
 <body class="bg-gray-100">
     <div>
@@ -126,7 +126,7 @@ if (empty($_SESSION['username'])) {
         </div>
 
     </div>
-    <script>
+    <!-- <script>
         const code = window.location.search;
         if (code?.split("=") && code?.split("=").length > 0) {
             const codeSucc = code?.split("=")[1];
@@ -145,7 +145,7 @@ if (empty($_SESSION['username'])) {
                 })
             }
         }
-    </script>
+    </script> -->
 </body>
 
 </html>

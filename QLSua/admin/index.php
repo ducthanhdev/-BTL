@@ -169,11 +169,17 @@ if (!empty($_SESSION['username'])) {
 
 if (!empty($_POST)) {
     include "../connect.php";
-
     $username = $_POST["username"];
     $password = $_POST["Password"];
 
     $query = "select * from user where Email = '$username'";
+    $checkAdmin = mysqli_query($conn, "select * from user where Email = '$username' and IsAdmin = '1'");
+    if( $checkAdmin ->num_rows >= 1){  ?>
+     <script>
+            localStorage.setItem("isAdmin", "1")
+        </script>
+    <?php
+    }
     $result = mysqli_query($conn, $query);
     if ($result->num_rows < 1) {
     ?>
@@ -186,19 +192,17 @@ if (!empty($_POST)) {
         if ($password == $row['password']) {
             $_SESSION['username'] = $row['username'];
             $_SESSION['user_id'] = $row['id'];
-
         ?>
             <script>
                 window.location.href = `index.php?code=0`;
             </script>
         <?php
-
         } else {
         ?>
             <script>
                 window.location.href = `index.php?code=2`;
             </script>
-<?php
+        <?php
         }
     }
 }
