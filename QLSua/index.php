@@ -123,31 +123,6 @@
 
             authDiv.appendChild(link);
         }
-
-
-        if (textAuth) {
-            if (isLogin === '1') {
-                localStorage.setItem("isLogin", "0");
-                localStorage.setItem("isAdmin", "0");
-            }
-        }
-
-        if (isLogin === '1' && authDiv) {
-            const link = document.createElement("a");
-            link.href = "http://localhost/-BTL/QLSua/admin/index.php";
-            link.classList.add("btn-link");
-
-            const newButton = document.createElement("button");
-            newButton.textContent = "Admin Control";
-            newButton.classList.add("bg-blue-500", "text-white", "px-4", "py-2", "rounded", "hover:bg-blue-700", "focus:outline-none", "focus:ring", "focus:ring-blue-300");
-            newButton.classList.add("btnAdmin");
-
-            link.appendChild(newButton);
-
-            authDiv.appendChild(link);
-        }
-
-
         if (btnAuth) {
             btnAuth.addEventListener("click", () => {
                 if (isLogin === '1') {
