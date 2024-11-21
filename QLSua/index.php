@@ -93,6 +93,7 @@
 
     <script>
         const isLogin = localStorage.getItem("isLogin");
+        const isAdmin = localStorage.getItem("isAdmin");
         const textAuth = document.querySelector(".textAuth");
         const btnAuth = document.querySelector(".btnAuth");
         const authDiv = document.querySelector(".auth");
@@ -105,6 +106,29 @@
             } else {
                 textAuth.textContent = "Đăng nhập";
                 textAuth.href = window.location.href + "admin/index.php";
+            }
+        }
+
+        if (isAdmin === '1' && authDiv) {
+            const link = document.createElement("a");
+            link.href = window.location.href + "admin/dashboard.php";
+            link.classList.add("btn-link");
+
+            const newButton = document.createElement("button");
+            newButton.textContent = "Admin Control";
+            newButton.classList.add("bg-blue-500", "text-white", "px-4", "py-2", "rounded", "hover:bg-blue-700", "focus:outline-none", "focus:ring", "focus:ring-blue-300");
+            newButton.classList.add("btnAdmin");
+
+            link.appendChild(newButton);
+
+            authDiv.appendChild(link);
+        }
+
+
+        if (textAuth) {
+            if (isLogin === '1') {
+                localStorage.setItem("isLogin", "0");
+                localStorage.setItem("isAdmin", "0");
             }
         }
 
